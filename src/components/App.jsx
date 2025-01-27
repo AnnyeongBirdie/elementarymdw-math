@@ -2,12 +2,16 @@ import React, { useState } from "react";
 import Footer from "./Footer";
 import Header from "./Header";
 
-function MathApp() {
+console.log("App.jsx loaded");
+
+function App() {
+  console.log("App component rendered");
   const [problem, setProblem] = useState(generateProblem());
   const [input, setInput] = useState("");
   const [feedback, setFeedback] = useState("");
 
   function generateProblem() {
+    console.log("generateProblem called");
     const operators = ["+", "-", "*", "/"];
     const operator = operators[Math.floor(Math.random() * operators.length)];
     let num1 = Math.floor(Math.random() * 10) + 1; // 1 과 10 사이 숫자
@@ -51,7 +55,7 @@ function MathApp() {
       <h2>
         {problem.num1} {problem.operator} {problem.num2} {"= ?"}
       </h2>
-      <div class="answer">
+      <div className="answer">
         <input
           type="number"
           value={input}
@@ -76,4 +80,4 @@ function MathApp() {
   );
 }
 
-export default MathApp;
+export default App;

@@ -1,6 +1,9 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import App from "./components/App";
-import "./../public/styles.css";
+import ReactDOM from "react-dom/client";
+import App from "./components/App.jsx";
+import "./css/styles.css";
 
-ReactDOM.render(<App />, document.getElementById("root"));
+console.log("index.js is loaded");
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<App />);
