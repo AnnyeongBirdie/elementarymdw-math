@@ -37,13 +37,20 @@ function App() {
 
   const handleSubmit = () => {
     if (parseFloat(input) === problem.solution) {
-      setFeedback("잘했어요! 🎉");
-      setProblem(generateProblem());
+      setFeedback(""); // Clear feedback immediately
+      setTimeout(() => {
+        setFeedback("잘했어요! 🎉");
+        setProblem(generateProblem());
+      }, 500); // 500ms delay
     } else {
-      setFeedback("아쉽지만 틀렸어요. 다시해봐요!🥴");
+      setFeedback(""); // Clear feedback immediately
+      setTimeout(() => {
+        setFeedback("아쉽지만 틀렸어요. 다시해봐요!🥴");
+      }, 500); // 500ms delay
     }
     setInput(""); // input 초기화
   };
+  
 
   return (
     <div>
