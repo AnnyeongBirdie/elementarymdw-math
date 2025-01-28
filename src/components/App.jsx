@@ -40,7 +40,7 @@ function App() {
       setFeedback("잘했어요! 🎉");
       setProblem(generateProblem());
     } else {
-      setFeedback("아쉽지만 틀렸어요, 다시해봐요!🥴");
+      setFeedback("아쉽지만 틀렸어요. 다시해봐요!🥴");
     }
     setInput(""); // input 초기화
   };
