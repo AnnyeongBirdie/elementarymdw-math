@@ -9,6 +9,8 @@ function App() {
   const [problem, setProblem] = useState(generateProblem());
   const [input, setInput] = useState("");
   const [feedback, setFeedback] = useState("");
+  const [correct, setCorrect] = useState(parseInt(localStorage.getItem("correct")) || 0);
+  const [wrong, setWrong] = useState(parseInt(localStorage.getItem("wrong")) || 0);
 
   function generateProblem() {
     console.log("generateProblem called");
@@ -37,20 +39,33 @@ function App() {
 
   const handleSubmit = () => {
     if (parseFloat(input) === problem.solution) {
-      setFeedback(""); // Clear feedback immediately
-      setTimeout(() => {
-        setFeedback("잘했어요! 🎉");
-        setProblem(generateProblem());
-      }, 500); // 500ms delay
+      setCorrect(prev => {
+        const newCorrect = prev + 1;
+        localStorage.setItem("correct", newCorrect);
+        return newCorrect;
+      });
+      setFeedback("잘했어요! 🎉");
+      setProblem(generateProblem());
     } else {
-      setFeedback(""); // Clear feedback immediately
-      setTimeout(() => {
-        setFeedback("아쉽지만 틀렸어요. 다시해봐요!🥴");
-      }, 500); // 500ms delay
+      setWrong(prev => {
+        const newWrong = prev + 1;
+        localStorage.setItem("wrong", newWrong);
+        return newWrong;
+      });
+      setFeedback("아쉽지만 틀렸어요. 다시해봐요!🥴");
     }
-    setInput(""); // input 초기화
+    setInput("");
   };
-  
+
+  const resetScore = () => {
+    setCorrect(0);
+    setWrong(0);
+    localStorage.setItem("correct", 0);
+    localStorage.setItem("wrong", 0);
+  };
+
+  const total = correct + wrong;
+  const score = total > 0 ? Math.round((correct / total) * 100) : 0;
 
   return (
     <div>
@@ -68,7 +83,7 @@ function App() {
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={(e) => {
-            if (e.keyCode == "13") handleSubmit();
+            if (e.keyCode === 13) handleSubmit();
           }}
           placeholder="답을 입력하세요"
           style={{ fontSize: "18px", padding: "5px" }}
@@ -79,9 +94,11 @@ function App() {
         >
           제출
         </button>
-      </div>
+      </div >
       <br></br>
       <h3>{feedback}</h3>
+      <h3>점수: {score}% ({correct}/{total})</h3>
+      <button onClick={resetScore} className="reset-button">점수 초기화</button>
       <Footer />
     </div>
   );

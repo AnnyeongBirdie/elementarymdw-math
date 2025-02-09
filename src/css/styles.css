@@ -49,6 +49,14 @@ h3 {
   align-items: center;
 }
 
+.reset-button {
+  font-size: 16px;
+  margin-top: 10px;
+  display: block;
+  margin: 10px auto;
+  text-align: center;
+}
+
 footer {
   position: absolute;
   text-align: center;
