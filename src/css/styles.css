@@ -1,19 +1,25 @@
+/* ====== Global Reset & Typography ====== */
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
+
 html {
-  font-family: "Montserrat", sans-serif;
-}
-body {
-  background: #93ad98;
-  background-image: url("https://www.transparenttextures.com/patterns/gplay.png");
-  padding: 0 16px;
+  font-family: "Dongle", serif;
+  font-size: 16px;
 }
 
+body {
+  background-color: #E0E0E0;
+  width: 600px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+/* ====== Header ====== */
 header {
-  background-color: #6b9f64;
+  background-color: #bdbdbd;
   margin: auto -16px;
   padding: 16px 32px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
@@ -21,51 +27,131 @@ header {
 
 header h1 {
   color: #fff;
-  font-family: "Nanum Pen Script";
   font-weight: 400;
 }
 
+/* ====== Headings ====== */
 h1 {
   text-align: center;
-  font-family: "Nanum Pen Script";
-  font-size: 30px;
+  font-size: 3rem;
 }
 
 h2 {
   text-align: center;
-  font-family: "Nanum Pen Script";
-  font-size: 80px;
+  font-size: 5rem;
 }
 
 h3 {
   text-align: center;
-  font-family: "Nanum Pen Script";
-  font-size: 30px;
+  font-size: 3rem;
 }
 
+/* ====== Notebook (Workbook) ====== */
+.notebook {
+  width: 95vmin;
+  height: 85vmin;
+  display: flex;
+  flex-direction: column;  /* Stack children vertically */
+  align-items: center;  /* Center horizontally */
+  justify-content: center;  /* Center vertically */
+  padding: 20px;
+  margin: 0 auto;
+  position: relative;
+  background:
+    /* rings */
+          repeating-linear-gradient(
+                  #f7f7f7 0vmin,
+                  #d9d9d9 0.25vmin,
+                  #616161 0.75vmin,
+                  transparent 0.75vmin,
+                  transparent 1.25vmin,
+                  #f7f7f7 1.25vmin,
+                  #d9d9d9 1.5vmin,
+                  #616161 2vmin,
+                  transparent 2vmin,
+                  transparent 4vmin
+          ) 12vmin 4vmin / 5.5vmin 80vmin no-repeat,
+
+            /* holes */
+          repeating-linear-gradient(
+                  #888888 0vmin,
+                  #414141 2vmin,
+                  transparent 2vmin,
+                  transparent 4vmin
+          ) 17vmin 4vmin / 2vmin 80vmin no-repeat,
+
+            /* pages and cover */
+          linear-gradient(#ffffff, #ffffff) 15vmin 0vmin / 59vmin 84vmin no-repeat,
+          linear-gradient(#616161, #020202) 15vmin 0vmin / 60vmin 85vmin no-repeat;
+}
+
+/* Ensure text and input fields don’t break out */
+.notebook h1,
+.notebook h2,
+.notebook .answer {
+  position: relative;
+  text-align: center;
+  z-index: 2;
+}
+
+/* ====== Answer Input & Buttons ====== */
 .answer {
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
+  text-align: center;
+  margin: 20px auto;
+}
+
+.answer input {
+  font-size: 1rem;
+  padding: 8px;
+  width: 60%;
+  border: 2px solid #616161;
+  border-radius: 5px;
+}
+
+/* Common button styles */
+button {
+  font-size: 1rem;
+  padding: 7px;
+  margin: 10px;
+  border: none;
+  background-color: #2484e1;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #1a5ebc;
+}
+
+/* ====== Score & Reset Button ====== */
+.scoring {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 20px auto;
 }
 
 .reset-button {
-  font-size: 16px;
-  margin-top: 10px;
-  display: block;
-  margin: 10px auto;
-  text-align: center;
+  margin-left: 0;  /* Center alignment */
 }
 
+/* ====== Footer ====== */
 footer {
   position: absolute;
   text-align: center;
   bottom: 0;
   width: 100%;
-  height: 2.5rem;
+  height: 4rem;
 }
 
 footer p {
-  color: #ccc;
-  font-size: 13px;
+  color: #424242;
+  font-size: 2rem;
 }

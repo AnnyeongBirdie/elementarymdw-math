@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Footer from "./Footer";
 import Header from "./Header";
+import Workbook from "./Workbook.jsx";
+import Score from "./Score.jsx";
 
 console.log("App.jsx loaded");
 
@@ -60,6 +62,7 @@ function App() {
   const resetScore = () => {
     setCorrect(0);
     setWrong(0);
+    setFeedback("");
     localStorage.setItem("correct", 0);
     localStorage.setItem("wrong", 0);
   };
@@ -67,41 +70,17 @@ function App() {
   const total = correct + wrong;
   const score = total > 0 ? Math.round((correct / total) * 100) : 0;
 
-  return (
-    <div>
-      <Header />
-      <br></br>
-      <br></br>
-      <h1>다음 문제를 풀어보세요 </h1>
-      <br></br>
-      <h2>
-        {problem.num1} {problem.operator} {problem.num2} {"= ?"}
-      </h2>
-      <div className="answer">
-        <input
-          type="number"
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          onKeyDown={(e) => {
-            if (e.keyCode === 13) handleSubmit();
-          }}
-          placeholder="답을 입력하세요"
-          style={{ fontSize: "18px", padding: "5px" }}
-        />
-        <button
-          onClick={handleSubmit}
-          style={{ fontSize: "18px", marginLeft: "10px" }}
-        >
-          제출
-        </button>
-      </div >
-      <br></br>
-      <h3>{feedback}</h3>
-      <h3>점수: {score}% ({correct}/{total})</h3>
-      <button onClick={resetScore} className="reset-button">점수 초기화</button>
-      <Footer />
-    </div>
-  );
+    return (
+        <div>
+            <Header />
+            <br />
+            <br />
+            <Workbook problem={problem} input={input} setInput={setInput} handleSubmit={handleSubmit} />
+            <h3>{feedback}</h3>
+            <Score score={score} correct={correct} total={total} resetScore={resetScore} />
+            <Footer />
+        </div>
+    );
 }
 
 export default App;
