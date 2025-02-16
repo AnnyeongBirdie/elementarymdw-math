@@ -20,19 +20,25 @@ body {
 .app-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
     min-height: 100vh;
+    padding-top: 100px;
     padding-bottom: 2rem;
     text-align: center;
 }
 
 /* ====== Header ====== */
 header {
-  background-color: #bdbdbd;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #bdbdbd;
   width: 100%;
   padding: 16px 32px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+    z-index: 1000; /* Ensures header stays above all content */
 }
 
 header h1 {
