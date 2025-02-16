@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/elementarymdw-math/static/css/main.f081942c.css",
-    "main.js": "/elementarymdw-math/static/js/main.d9dc5650.js",
+    "main.css": "/elementarymdw-math/static/css/main.e8006a01.css",
+    "main.js": "/elementarymdw-math/static/js/main.cc56284c.js",
     "index.html": "/elementarymdw-math/index.html",
-    "main.f081942c.css.map": "/elementarymdw-math/static/css/main.f081942c.css.map",
-    "main.d9dc5650.js.map": "/elementarymdw-math/static/js/main.d9dc5650.js.map"
+    "main.e8006a01.css.map": "/elementarymdw-math/static/css/main.e8006a01.css.map",
+    "main.cc56284c.js.map": "/elementarymdw-math/static/js/main.cc56284c.js.map"
   },
   "entrypoints": [
-    "static/css/main.f081942c.css",
-    "static/js/main.d9dc5650.js"
+    "static/css/main.e8006a01.css",
+    "static/js/main.cc56284c.js"
   ]
 }
