@@ -62,6 +62,10 @@ h3 {
   font-size: 3rem;
 }
 
+h3.feedback {
+  margin: 0 auto;
+}
+
 /* ====== Notebook (Workbook) ====== */
 .notebook {
   width: 90%;

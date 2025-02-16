@@ -75,7 +75,7 @@ function App() {
         <Header />
         <br />
         <Workbook problem={problem} input={input} setInput={setInput} handleSubmit={handleSubmit} />
-        <h3>{feedback}</h3>
+        <h3 className="feedback">{feedback}</h3>
         <Score score={score} correct={correct} total={total} resetScore={resetScore} />
         <Footer />
       </div>
