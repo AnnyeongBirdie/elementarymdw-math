@@ -70,17 +70,17 @@ function App() {
   const total = correct + wrong;
   const score = total > 0 ? Math.round((correct / total) * 100) : 0;
 
-    return (
-        <div>
-            <Header />
-            <br />
-            <br />
-            <Workbook problem={problem} input={input} setInput={setInput} handleSubmit={handleSubmit} />
-            <h3>{feedback}</h3>
-            <Score score={score} correct={correct} total={total} resetScore={resetScore} />
-            <Footer />
-        </div>
-    );
+  return (
+      <div className="app-container">
+        <Header />
+        <br />
+        <Workbook problem={problem} input={input} setInput={setInput} handleSubmit={handleSubmit} />
+        <h3>{feedback}</h3>
+        <Score score={score} correct={correct} total={total} resetScore={resetScore} />
+        <Footer />
+      </div>
+  );
+
 }
 
 export default App;

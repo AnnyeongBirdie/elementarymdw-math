@@ -3,7 +3,7 @@ import "../css/styles.css";
 
 const Workbook = ({ problem, input, setInput, handleSubmit }) => {
     return (
-        <div className="notebook">
+        <div className="notebook workbook-content">
             <h1>다음 문제를 풀어보세요</h1>
             <br />
             <h2>
